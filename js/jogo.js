@@ -31,6 +31,7 @@ var bola = {
     tx: 30,
     ty: 30,
     dir: 8,
+    diry: 8,
 }
 
 pincel.font = "20px Arial";
@@ -38,17 +39,65 @@ var pts1 = 0;
 var pts2 = 0;
 var score1 = pincel.fillText("Score 1: " + pts1,100,50)
 var score2 = pincel.fillText("Score 2: " + pts2,1100,50)
+var roundover = pincel.fillText("Pressione espaço para iniciar",480,250)
+var isPlaying = false;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-
 
 function moveBall() {// movimentação bola
-    if(bola.px >= (jogador2.px-jogador2.tx)){
-        bola.dir *=-1;
-    }
-    if(bola.px <= (jogador1.px+jogador1.tx)){
-        bola.dir *=-1;
-    }
+
     bola.px += bola.dir;
+    bola.py += bola.diry;
+
+    if(bola.px < jogador1.px){
+        pts2 = pts2 + 1;
+        isPlaying = false;
+        roundover = pincel.fillText("Pressione espaço para iniciar",480,250)
+        setdefault();
+        clearInterval(refreshIntervalId);
+    }
+    if(bola.px > jogador2.px){
+        pts1 = pts1 + 1;
+        isPlaying = false;
+        roundover = pincel.fillText("Pressione espaço para iniciar",480,250)
+        setdefault();
+        clearInterval(refreshIntervalId);
+    }
+}
+
+function setdefault(){
+    bola.px = 600;
+    bola.py = 300;
+    jogador1 = {
+        px: 100,
+        py: 200,
+        tx: 30,
+        ty: 250,
+        dir: 0,
+    }
+    
+    jogador2 = {
+        px: 1100,
+        py: 200,
+        tx: 30,
+        ty: 250,
+        dir: 0,
+    }
+}
+
+function colisionBall() { // colision
+    if(bola.py + bola.ty >= jogador1.py && bola.py <= jogador1.py + jogador1.ty && bola.px <= jogador1.px + jogador1.tx ){
+        bola.dir *= -1
+    }
+    if(bola.py + bola.ty >= jogador2.py && bola.py <= jogador2.py + jogador2.ty && bola.px >= jogador2.px - jogador2.tx ){
+        bola.dir *= -1
+    }
+    if(bola.py <= 0){
+        bola.diry *= -1
+    }
+    if(bola.py >= canvas.height - bola.ty){
+        bola.diry *= -1
+    }
 }
 
 function print() {// desenhar na tela
@@ -59,16 +108,6 @@ function print() {// desenhar na tela
     pincel.fillRect(bola.px, bola.py, bola.tx, bola.ty);
 }
 
-//MAIN CODE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-
-function Main(){
-    pincel.clearRect(0, 0, canvas.width, canvas.height);
-    print();
-    moveBall();
-    MovePlayer1();
-    MovePlayer2();
-    requestAnimationFrame(Main);
-}
-//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //MOVIMENTAÇÃO JOGADOR 1 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 document.addEventListener("keydown", function(e){
@@ -109,6 +148,7 @@ document.addEventListener("keydown", function(e){
     }
 })
 
+
 document.addEventListener("keyup", function(e){
     if(e.keyCode === 38) { //setinha Cima
         jogador2.dir = 0;
@@ -130,4 +170,27 @@ function MovePlayer2(){
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-
 
-setInterval(Main(), 20); // Run game loop
+document.addEventListener("keydown", function(e){
+    if(e.keyCode === 32 && isPlaying === false) { //Espaço
+        Start();
+        isPlaying = true;
+    }
+})
+
+//MAIN CODE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-
+function Main(){
+    pincel.clearRect(0, 0, canvas.width, canvas.height);
+    print();
+    colisionBall();
+    moveBall();
+    MovePlayer1();
+    MovePlayer2();
+    requestAnimationFrame(Main);
+}
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+function Start(){
+    var refreshIntervalId = setInterval(Main(), 20);
+}
+
+print();
