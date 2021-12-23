@@ -88,9 +88,15 @@ function setdefault(){
 function colisionBall() { // colision
     if(bola.py + bola.ty >= jogador1.py && bola.py <= jogador1.py + jogador1.ty && bola.px <= jogador1.px + jogador1.tx ){
         bola.dir *= -1
+        if(bola.px < jogador1.px + jogador1.tx){
+            bola.px += bola.tx/2;
+        }
     }
     if(bola.py + bola.ty >= jogador2.py && bola.py <= jogador2.py + jogador2.ty && bola.px >= jogador2.px - jogador2.tx ){
         bola.dir *= -1
+        if(bola.px > jogador2.px - jogador2.tx){
+            bola.px -= bola.tx/2;
+        }
     }
     if(bola.py <= 0){
         bola.diry *= -1
