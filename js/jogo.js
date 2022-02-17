@@ -282,5 +282,3 @@ function Start(){
     startTime = new Date();
     var refreshIntervalId = setInterval(Main(), 20);
 }
-
-print();
