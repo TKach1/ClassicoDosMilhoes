@@ -267,7 +267,7 @@ document.addEventListener("keydown", function(e){
 //MAIN CODE -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-
 function Main(){
     audio.play();
-    audio.loop = true
+    audio.loop = true;
     pincel.clearRect(0, 0, canvas.width, canvas.height);
     print();
     colisionBall();
