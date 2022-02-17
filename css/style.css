@@ -1,16 +1,118 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
-    background-color: #3d3d3d;
+    /* background-color: #3d3d3d; */
 }
 
-canvas{
-    position: absolute;
-    margin: auto;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
+.bg-color {
+    z-index: -99;
+    position: fixed;
+    background-position: center;
+    background-image: url("../images/sao-januario.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(3px);
+    height: 100%;
     left: 0px;
+    right: 0px;
+}
+
+#header {
+    position: fixed;
+    display: flex;
+    height: 5em;
+    width: 100%;
+    background-color: #fff;
+    background-color: #bdc3c7;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#body {
+    display: flex;
+    flex-direction: column;
+    /* background-color: white; */
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #0000007a;
+    padding-top: 10em;
+    padding-bottom: 5em;
+}
+
+.box {
+    display: flex;
+    padding: 2em 10em 0em 10em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25em;
+    color: #ecf0f1;
+    text-align: justify;
+    align-items: center;
+}
+
+.box>img {
+    width: 10em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.box>div {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.classico {
+    color: #ffffff;
+}
+
+.vasco {
+    color: #000;
+}
+
+.mengao {
+    color: #e7331f;
+}
+
+.menor {
+    font-size: .75em;
+    color: #adadad;
+}
+
+#titulo {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    margin: auto;
+    color: white;
+    text-shadow: 2px 2px 0px #000;
+}
+
+#criadores {
+    margin: auto;
+    color: white;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+#footer {
+    position: relative;
+    display: flex;
+    height: 10em;
+    width: 100%;
+    background-color: #161616;
+}
+
+#carla {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    font-family: 'Nunito', sans-serif;
+    color: #3a3a3a;
+}
+
+#carla:hover {
+    color: #fff;
+}
+
+#canvas {
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #4b4b4b;
 }
-

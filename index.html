@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Pong</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <canvas id="canvas" width="1280" height="720"></canvas>
 
-        <script src="js/jogo.js" charset="utf-8"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Pong</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-color"></div>
+    <div id="header">
+        <h1 id="titulo">Clássico dos Milhões</h1>
+    </div>
+
+    <div id="body">
+        <div class="box">
+            <div>
+                O jogo <span class="classico"><b>Clássico dos Milhões</b></span> apresenta um dos confrontos mais famosos do futebol no Brasil, entre <span class="vasco"><b>Vasco</b></span> e <span class="mengao"><b>Flamengo</b></span>. Ele traz a temática
+                de uma partida de futebol, onde os dois times estão na final do campeonato carioca. O game reproduz um ambiente em São Januário, representando a torcida do <span class="vasco"><b>Vasco</b></span> apoiando o time durante o clássico. O título
+                pode ser apenas de um time, qual a sua torcida? <span class="vasco"><b>Vasco da Gama</b></span> ou <span class="mengao"><b>Flamengo</b></span>?
+            </div>
+
+            <img src="images/CASIMIROCAPA.png">
+        </div>
+        <div class="box">
+            <img src="images/lucas de freitas.jpg">
+            <div>
+                "O melhor jogo que já joguei. Melhor que FIFA 30!!! 10/10"<br>- Freitas, Lucas
+            </div>
+        </div>
+        <div class="box">
+            <div>
+                "the best pastel con flango qe ja jugei em todo mia vida!!! チキン/10"<br>- Hideo Kojima
+            </div>
+            <img src="images/licensed-image.jpg">
+        </div>
+        <div id="canvas">
+            <canvas id="canvas" width="1280" height="720"></canvas>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="criadores">
+            <span class="menor">Feito por:</span> Nícolas Carvalho; Lucas Freitas; Wesley Brandão
+        </div>
+        <span id="carla">carla me da A</span>
+    </div>
+
+
+    <script src="js/jogo.js" charset="utf-8"></script>
+</body>
+
 </html>
