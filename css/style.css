@@ -20,7 +20,7 @@ body {
 #header {
     position: fixed;
     display: flex;
-    height: 5em;
+    height: 5vw;
     width: 100%;
     background-color: #fff;
     background-color: #bdc3c7;
@@ -34,13 +34,13 @@ body {
     margin-left: 15%;
     margin-right: 15%;
     background-color: #0000007a;
-    padding-top: 10em;
-    padding-bottom: 5em;
+    padding-top: 7vw;
+    padding-bottom: 5vw;
 }
 
 .box {
     display: flex;
-    padding: 2em 10em 0em 10em;
+    padding: 2vw 10vw 0vw 10vw;
     font-family: 'Nunito', sans-serif;
     font-size: 1.25em;
     color: #ecf0f1;
@@ -49,14 +49,14 @@ body {
 }
 
 .box>img {
-    width: 10em;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 10vw;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .box>div {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .classico {
@@ -92,7 +92,7 @@ body {
 #footer {
     position: relative;
     display: flex;
-    height: 10em;
+    height: 7vw;
     width: 100%;
     background-color: #161616;
 }
@@ -110,8 +110,12 @@ body {
     color: #fff;
 }
 
-#canvas {
+.mid {
+    display: flex;
     margin-top: 2em;
+}
+
+#canvas {
     margin-left: auto;
     margin-right: auto;
     background-color: #4b4b4b;
