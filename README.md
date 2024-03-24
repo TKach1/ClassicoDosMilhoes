@@ -1,6 +1,6 @@
-### Clássico dos milhões
+# Clássico dos milhões
 
-# feito por:
+### feito por:
 - wesley tkachi
 - lucas fritas
 - cicolas narvalho
